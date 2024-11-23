@@ -8,7 +8,7 @@ import joblib
 app = Flask(__name__)
 
 # Load Dataset
-data = pd.read_csv('D:/Coding/Machine Learning/Datasets/synthetic_cognitive_load_large_data.csv')
+data = pd.read_csv('data/synthetic_cognitive_load_large_data.csv')
 
 # Preprocessing
 X = data[['Heart Rate', 'Skin Conductance', 'Eye Blink Rate', 'Pupil Dilation']]
