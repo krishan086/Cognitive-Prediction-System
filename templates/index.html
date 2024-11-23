@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Prediction System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            color: #fff; /* Change text color to white for better contrast */
+            background-image: url('cognitive_img.jpg');
+            background: cover;
+            display: flex;
+        }
+        .header-image {
+            width: 50%; /* Make the image responsive */
+            height: auto;
+
+        }
+        .container {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+        }
+        .alert {
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for alert messages */
+            color: #000; /* Dark text color */
+        }
+        .alert alert-info mt-3{
+            padding: 20px;
+            margin-top: 300px;
+        }
+        h1{
+            color: black;
+        }
+        .extension{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Image -->
+<img src="/static/cognitive_img.jpg" alt="Cognitive Load" class="header-image">
+
+<div class="container">
+    <h1>Cognitive Prediction System</h1>
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label for="heart_rate">Heart Rate (BPM)</label>
+            <input type="text" id="heart_rate" name="heart_rate" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="skin_conductance">Skin Conductance (µS)</label>
+            <input type="text" id="skin_conductance" name="skin_conductance" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="eye_blink_rate">Eye Blink Rate (Blinks/Minute)</label>
+            <input type="text" id="eye_blink_rate" name="eye_blink_rate" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="pupil_dilation">Pupil Dilation (mm)</label>
+            <input type="text" id="pupil_dilation" name="pupil_dilation" required class="form-control">
+        </div>
+        <p class="extension">....</p>
+        <div class="form-group text-center">
+            <input type="submit" value="Predict Cognitive Load" class="btn btn-primary">
+        </div>
+    </form>
+    {% if prediction is not none %}
+        <div class="alert alert-info mt-3">
+            Predicted Cognitive Load: <strong>{{ prediction }}</strong><br>
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
